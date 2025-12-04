@@ -1,0 +1,602 @@
+/* -----------------------------------------------------------
+   GERAL
+----------------------------------------------------------- */
+body {
+    font-family: "Georgia", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdf8f3; /* tom claro, elegante */
+    color: #3b2f2f;
+}
+
+/* -----------------------------------------------------------
+   BANNER
+----------------------------------------------------------- */
+.banner {
+    width: 100%;
+    height: 220px;
+    position: relative;
+    background-color: #4b2e14; /* fundo marrom caso imagem falhe */
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+/* Caso você coloque imagem no banner.jsp, ela será ajustada */
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-text {
+    position: absolute;
+    bottom: 25px;
+    left: 35px;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 18px 28px;
+    border-radius: 6px;
+    color: #fff;
+}
+
+.banner-text h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.banner-text p {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+/* -----------------------------------------------------------
+   MENU
+----------------------------------------------------------- */
+nav.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #4b2e14; /* marrom escuro */
+    padding: 0 20px;
+}
+
+.menu-icon {
+    display: none; /* aparece só no mobile */
+    cursor: pointer;
+    font-size: 32px;
+    color: #fff;
+    padding: 15px;
+}
+
+/* Lista de links no desktop */
+nav ul {
+    list-style: none;
+    display: flex; /* 👈 GARANTE QUE APARECE NO DESKTOP */
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #6b4221;
+}
+
+/* Área do usuário */
+.user-area {
+    margin-left: auto;
+    padding: 15px;
+    color: #fff;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 16px;
+}
+
+.user-area a {
+    color: #ffefd6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.user-area a:hover {
+    text-decoration: underline;
+}
+
+/* -----------------------------------------------------------
+   CONTEÚDO PRINCIPAL
+----------------------------------------------------------- */
+.content {
+    padding: 40px;
+    text-align: center;
+}
+
+.content h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* -----------------------------------------------------------
+   CARDS DE CATEGORIAS / NOVIDADES
+----------------------------------------------------------- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: 0.3s;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* -----------------------------------------------------------
+   FORMULÁRIOS (caso use)
+----------------------------------------------------------- */
+form {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #f8f3ea;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 2px solid #c8b8a6;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+textarea {
+    height: 120px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #45A049;
+}
+
+/* -----------------------------------------------------------
+   MOBILE (responsivo)
+----------------------------------------------------------- */
+@media (max-width: 768px) {
+
+    .menu-icon {
+        display: block;
+    }
+
+    nav ul {
+        display: none; /* no mobile, some até clicar */
+        flex-direction: column;
+        width: 100%;
+        background-color: #4b2e14;
+        margin-top: 10px;
+    }
+
+    nav ul.show {
+        display: flex !important;
+    }
+
+    nav ul li a {
+        padding: 12px;
+        text-align: left;
+    }
+
+    .user-area {
+        display: none; /* simplificar na versão mobile */
+    }
+
+    .banner {
+        height: 160px;
+    }
+
+    .banner-text {
+        bottom: 15px;
+        left: 15px;
+        padding: 12px 18px;
+    }
+}
+
+/* -----------------------------------------------------------
+   AJUSTES PARA BOTÕES DE AÇÃO (listar_perfil.jsp)
+----------------------------------------------------------- */
+.btn-group-acao {
+    display: flex;
+    justify-content: center; /* Centraliza o grupo de botões */
+    align-items: center;
+    gap: 5px; /* Espaçamento entre os botões */
+}
+
+.btn-group-acao .btn {
+    /* Garante que os botões tenham o mesmo tamanho */
+    width: 38px; /* Largura padrão para botões de ícone */
+    height: 30px; /* Altura padrão para botões de ícone */
+    padding: 0; /* Remove padding padrão para centralizar o ícone */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1; /* Ajuste fino para o ícone */
+}
+
+.btn-group-acao .btn-default,
+.btn-group-acao .btn-success {
+    width: auto; /* Permite que o botão de texto se ajuste ao conteúdo */
+    padding: 5px 10px; /* Adiciona padding para o botão de texto */
+    height: auto;
+}
+/* Ajuste específico para botão e ícone do carrinho */
+.compra-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* espaço entre campo e botão */
+    margin-top: 10px;
+}
+
+.campo-qtd {
+    width: 60px;
+    padding: 6px;
+    font-size: 16px;
+    border: 2px solid #c8b8a6;
+    border-radius: 6px;
+}
+
+/* Botão maior e mais visível */
+.btn-carrinho {
+    width: 44px !important;
+    height: 44px !important;
+    padding: 6px !important;
+    background-color: #ffffff !important; /* fundo branco */
+    border: 2px solid #c8b8a6 !important; /* borda suave */
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-carrinho:hover {
+    background-color: #f0e6dc !important; /* tom suave no hover */
+    border-color: #b8a48c !important;
+}
+
+.icon-carrinho {
+    width: 22px !important;
+    height: 22px !important;
+}
+.btn-lg {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* Botão Acessos — tamanho e alinhamento consistentes */
+.btn-acessos {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;             /* espaço entre ícone e texto */
+    padding: 8px 16px;    /* mais área clicável */
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    line-height: 1;       /* evita altura extra no texto */
+}
+
+/* Evita “pular” quando ícone está presente */
+.btn-acessos .glyphicon {
+    font-size: 14px;
+    top: 0;               /* corrige alinhamento vertical */
+    position: relative;
+}
+
+/* Garante consistência do texto */
+.btn-acessos .btn-text {
+    display: inline-block;
+}
+.foto-produto {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+
+
+/* -----------------------------------------------------------
+   RELATÓRIO DE VENDAS
+----------------------------------------------------------- */
+.relatorio-container {
+    background: white;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.relatorio-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 20px;
+}
+
+.relatorio-header h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.relatorio-info {
+    margin-bottom: 30px;
+}
+
+.info-box {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.info-box strong {
+    color: #333;
+}
+
+.resumo-vendas {
+    margin-bottom: 30px;
+}
+
+.card-resumo {
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card-resumo h3 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.card-resumo p {
+    margin: 5px 0 0 0;
+    font-size: 1.1em;
+}
+
+.card-resumo-total {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+}
+
+.card-resumo-ativas {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.card-resumo-canceladas {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.tabela-vendas {
+    margin-top: 20px;
+}
+
+.btn-imprimir {
+    margin: 20px 0;
+}
+
+.status-ativa {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-cancelada {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Estilos para impressão do relatório */
+@media print {
+    .btn-imprimir, .navbar, header {
+        display: none;
+    }
+    
+    .relatorio-container {
+        box-shadow: none;
+        padding: 0;
+    }
+}
+
+/* -----------------------------------------------------------
+   ESTILOS EXPORTADOS DE relatorio_estoque.jsp
+----------------------------------------------------------- */
+.mb-4 {
+    margin-bottom: 20px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.stats-cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.stats-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.stats-card.bg-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stats-card.bg-success {
+    background: linear-gradient(135deg, #5cb85c 0%, #449d44 100%);
+}
+
+.stats-card.bg-danger {
+    background: linear-gradient(135deg, #d9534f 0%, #c9302c 100%);
+}
+
+.stats-card.bg-info {
+    background: linear-gradient(135deg, #5bc0de 0%, #31b0d5 100%);
+}
+
+.stats-icon {
+    font-size: 48px;
+    margin-right: 20px;
+    opacity: 0.8;
+}
+
+.stats-info h3 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.stats-info p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.label {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.label-success {
+    background-color: #5cb85c;
+}
+
+.label-warning {
+    background-color: #f0ad4e;
+}
+
+.label-danger {
+    background-color: #d9534f;
+}
+
+.label-default {
+    background-color: #777;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.alert ul {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.alert li {
+    margin-bottom: 5px;
+}
+
+tr.danger {
+    background-color: #f2dede !important;
+}
+
+tr.warning {
+    background-color: #fcf8e3 !important;
+}
+
+.text-danger {
+    color: #d9534f;
+    font-weight: bold;
+}
+
